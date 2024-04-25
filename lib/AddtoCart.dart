@@ -6,9 +6,7 @@ import 'main.dart';
 import 'menuDetail.dart';
 import 'shop.dart';
 
-
 class addtocart extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Consumer<Shop>(
@@ -21,7 +19,8 @@ class addtocart extends StatelessWidget {
               leading: IconButton(
                 icon: const Icon(Icons.arrow_back),
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => MenuPage()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => MenuPage()));
                 },
               ),
               title: const Text("Order List"),
@@ -56,8 +55,8 @@ class addtocart extends StatelessWidget {
           Map<String, Map<String, dynamic>> itemCountMap = {};
           cart.forEach((food) {
             if (itemCountMap.containsKey(food.name)) {
-              itemCountMap[food.name]!['count'] = (itemCountMap[food.name]?['count'] ?? 0) + 1;
-
+              itemCountMap[food.name]!['count'] =
+                  (itemCountMap[food.name]?['count'] ?? 0) + 1;
             } else {
               itemCountMap[food.name] = {
                 'count': 1,
@@ -70,7 +69,8 @@ class addtocart extends StatelessWidget {
               leading: IconButton(
                 icon: const Icon(Icons.arrow_back),
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => MenuPage()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => MenuPage()));
                 },
               ),
               title: const Text("Order List"),
@@ -88,7 +88,8 @@ class addtocart extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final String itemName = itemCountMap.keys.toList()[index];
                   final int itemCount = itemCountMap[itemName]?['count'] ?? 0;
-                  final String imagePath = itemCountMap[itemName]?['imagePath'] ?? '';
+                  final String imagePath =
+                      itemCountMap[itemName]?['imagePath'] ?? '';
 
                   // Now you have access to itemName, itemCount, and imagePath
                   // Use them to build your ListTile
@@ -97,24 +98,25 @@ class addtocart extends StatelessWidget {
                     child: Container(
                       width: 300,
                       height: 70,
-
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(40),
-
-
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Image.asset(imagePath),
-                          Text(itemName, style: TextStyle(
-                            fontSize: 13,
-
-                          ),),
-                          Text("count : "+ itemCount.toString(), style: TextStyle(
-                            fontStyle: FontStyle.italic, fontSize: 13
-                          ),),
+                          Text(
+                            itemName,
+                            style: TextStyle(
+                              fontSize: 13,
+                            ),
+                          ),
+                          Text(
+                            "count : " + itemCount.toString(),
+                            style: TextStyle(
+                                fontStyle: FontStyle.italic, fontSize: 13),
+                          ),
                           IconButton(
                             icon: Icon(Icons.add),
                             onPressed: () {
@@ -122,20 +124,19 @@ class addtocart extends StatelessWidget {
                               Food food = shop.foodMenu[index];
 
                               // Call the addToCart method with the selected Food instance
-                              shop.addtocart(context, food, 1); // Increase count by 1
+                              shop.addtocart(
+                                  context, food, 1); // Increase count by 1
                             },
                           ),
-
-
                           IconButton(
                             icon: Icon(Icons.remove),
                             onPressed: () {
                               // Call a function to decrease the item count
                               // You can define this function in your Shop class
-                              shop.decreaseItemCount(context, itemName, 1); // Assuming quantity is always 1
+                              shop.decreaseItemCount(context, itemName,
+                                  1); // Assuming quantity is always 1
                             },
                           ),
-
                         ],
                       ),
                     ),
