@@ -34,9 +34,42 @@ class Shop extends ChangeNotifier {
       imagePath: "images/hmt.png",
       ingredients: "Carrot, minkhant, Pork, Sesame",
     ),
-  ];
-
-  final List<Food> _foodMenu2 = [
+    Food(
+      name: "Big Sushi Roll",
+      price: "100",
+      imagePath: "images/bigsushibig.png",
+      ingredients: "Carrot, Seaweed, Pork, Sesame",
+    ),
+    Food(
+      name: "Fish Egg Sushi",
+      price: "75",
+      imagePath: "images/bigsushibig.png",
+      ingredients: "Carrot, minkhant, Pork, Sesame",
+    ),
+    Food(
+      name: "Takoyaki(5)",
+      price: "50",
+      imagePath: "images/takoyaki.png",
+      ingredients: "Carrot, Seaweed, Pork, Sesame",
+    ),
+    Food(
+      name: "hmt",
+      price: "75",
+      imagePath: "images/hmt.png",
+      ingredients: "Carrot, minkhant, Pork, Sesame",
+    ),
+    Food(
+      name: "Big Sushi Roll",
+      price: "100",
+      imagePath: "images/bigsushibig.png",
+      ingredients: "Carrot, Seaweed, Pork, Sesame",
+    ),
+    Food(
+      name: "Fish Egg Sushi",
+      price: "75",
+      imagePath: "images/bigsushibig.png",
+      ingredients: "Carrot, minkhant, Pork, Sesame",
+    ),
     Food(
       name: "Takoyaki(5)",
       price: "50",
@@ -54,7 +87,6 @@ class Shop extends ChangeNotifier {
   List<Food> _cart = [];
 
   List<Food> get foodMenu => _foodMenu;
-  List<Food> get foodMenu2 => _foodMenu2;
   List<Food> get cart => _cart;
 
   void addtocart(context, Food food, int quantity) {
